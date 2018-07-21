@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import board from './assets';
+import { board } from './assets';
 
 class App extends Component {
  constructor() {
@@ -9,6 +9,9 @@ class App extends Component {
     this.state = {
       board: new board(),
     };
+	//this method determines the board size.
+	//just edit the (height,width), and the board will
+	//change size.
 	this.state.board.setBoard(4,6);
  }
 
@@ -32,11 +35,17 @@ class App extends Component {
 	  */}
 	  {this.state.board.board.map(row =>{
 	   return  (
-	   <div className="row">
+	   <div className="row" key={Math.random(Date.now())} >
 	   {row.map(tile => {
+		   if(tile.piece!=null){
 		   return(
-	   <div key={Math.random(Date.now())} className={`tile ${tile.color}`}></div>
-	   )})}
+	   <div key={Math.random(Date.now())} className={`tile ${tile.color}`}><img src={tile.piece.king} /></div>
+	   )}
+		else{
+		return(
+		<div key={Math.random(Date.now())} className={`tile ${tile.color}`}></div>	
+		)}
+	   })}
 	   </div>
 	   );
 		  }

@@ -1,7 +1,8 @@
 //there's a lot going on here. This creates a store of information,
 //and stores it in board (note in main logic, the address will be: this.state.board.board)
+import king from './images/king.png';
 
-export default class board {
+export class board {
 constructor(){
 	this.board=[];
 }
@@ -9,6 +10,7 @@ constructor(){
 // method to populate the board with key:value pairs, based on width,height paramaters
 setBoard(height,width) {
 let color = 'w';
+let piece= {king};
 	for(let i=0;i<height;i++){
 	let row =[];
 		for(let j=0;j<width;j++){
@@ -30,13 +32,14 @@ let color = 'w';
 			//This is a lot of notes, but will be important to remember if the central logic
 			//needs changed, so we don't go through and make the checker pattern not work.
 			if(width%2===1){
-			row.push(new Tile(j,color));
+			row.push(new Tile(j,color,piece));
 			if(color==='w'){
 			color='b';	
 			}
 			else{
 			color='w';
 			}
+			piece=null;
 			}
 			else{
 				if(j===0){
@@ -47,13 +50,14 @@ let color = 'w';
 					color='w';
 					}
 				}
-			row.push(new Tile(j,color));
+			row.push(new Tile(j,color,piece));
 			if(color==='w'){
 			color='b';	
 			}
 			else{
 			color='w';
 			}
+			piece=null;
 			}
 		}
 	this.board.push(row);
@@ -66,8 +70,9 @@ let color = 'w';
 //if we need to store another paramater on the tiles, it needs added on here as well as
 //in the main logic.
 class Tile {
-  constructor (tile, color) {
+  constructor (tile, color, piece) {
 	this.tile = tile;
     this.color = color;
+	this.piece= piece;
   }
 }
