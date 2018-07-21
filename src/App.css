@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .App-logo {
@@ -25,4 +28,33 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+*{
+box-sizing:border-box;
+}
+
+/* all cusom styles for the board are here */
+
+.row{
+	display:flex;
+}
+
+.tile{
+	height:100px;
+	width:100px;
+	border:1px solid black;
+}
+
+.b{
+	background:green;
+}
+
+.w{
+	background:blue;
+}
+
+.board{
+	margin-top:20px;
+	border:3px solid grey;
 }
