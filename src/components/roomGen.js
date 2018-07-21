@@ -10,8 +10,7 @@ import React from 'react';
 // 	  now accepts props, the expected input is something to the extent of:
 //	  props = {this.state.board}. It expects a board object, with rows.
 //
-//	  working on some function to "connect" multiplt boards; will need some heavy logic,
-//	  but first sime visual alignment in css just so it looks right.
+//	  working on some function to "connect" multiple boards will need some heavy logic,
 
 const RoomGenerator = (props) => {
 return(
