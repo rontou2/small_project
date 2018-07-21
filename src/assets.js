@@ -8,9 +8,17 @@ constructor(){
 }
 
 // method to populate the board with key:value pairs, based on width,height paramaters
-setBoard(height,width) {
+//start is a true/false value; only a board with a start value of true will generate
+//a king, so only have start passed in as true for one board
+setBoard(height,width,start) {
 let color = 'w';
-let piece= {king};
+let piece;
+if(start===true){
+piece= {king};
+}
+else {
+piece= null;
+}
 	for(let i=0;i<height;i++){
 	let row =[];
 		for(let j=0;j<width;j++){
